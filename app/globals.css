@@ -1,26 +1,186 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* shadcn theme variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  
+  /* Custom fonts from old CSS */
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  
+  /* Custom colors from old CSS */
+  --color-verified: var(--verified);
+  --color-verified-foreground: var(--verified-foreground);
+  --color-partial: var(--partial);
+  --color-partial-foreground: var(--partial-foreground);
+  --color-unverified: var(--unverified);
+  --color-unverified-foreground: var(--unverified-foreground);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+
+  /* shadcn radius variables - keep these */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* shadcn root variables */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.75rem; /* Override shadcn's 0.625rem */
+  
+  /* Custom colors from old CSS */
+  --paper: oklch(0.985 0.02 85);
+  --ink: oklch(0.22 0.05 280);
+  
+  --verified: oklch(0.72 0.19 155);
+  --verified-foreground: oklch(0.14 0.06 155);
+  --partial: oklch(0.82 0.18 80);
+  --partial-foreground: oklch(0.28 0.09 80);
+  --unverified: oklch(0.62 0.25 22);
+  --unverified-foreground: oklch(0.99 0.005 22);
+  
+  /* Gradients from old CSS */
+  --gradient-hero: linear-gradient(135deg, oklch(0.7 0.2 320) 0%, oklch(0.65 0.22 265) 45%, oklch(0.72 0.18 200) 100%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.6 0.25 300), oklch(0.62 0.24 250));
+  --gradient-accent: linear-gradient(135deg, oklch(0.82 0.18 55), oklch(0.72 0.22 25));
+  --gradient-mesh: radial-gradient(at 20% 10%, oklch(0.9 0.12 320 / 0.5) 0px, transparent 50%),
+                   radial-gradient(at 80% 0%, oklch(0.88 0.14 200 / 0.45) 0px, transparent 50%),
+                   radial-gradient(at 70% 90%, oklch(0.9 0.15 60 / 0.4) 0px, transparent 50%);
+  
+  /* Shadows from old CSS */
+  --shadow-glow: 0 20px 60px -20px oklch(0.55 0.24 285 / 0.45);
+  --shadow-soft: 0 10px 40px -20px oklch(0.4 0.15 280 / 0.25);
+}
+
+.dark {
+  /* shadcn dark variables */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  
+  /* Custom dark variables from old CSS */
+  --paper: oklch(0.18 0.02 260);
+  --ink: oklch(0.95 0.01 85);
+  
+  --verified: oklch(0.68 0.16 145);
+  --verified-foreground: oklch(0.14 0.05 145);
+  --partial: oklch(0.78 0.15 85);
+  --partial-foreground: oklch(0.22 0.08 85);
+  --unverified: oklch(0.62 0.22 27);
+  --unverified-foreground: oklch(0.98 0.005 27);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utilities from old CSS */
+@utility bg-gradient-hero { 
+  background-image: var(--gradient-hero); 
+}
+
+@utility bg-gradient-primary { 
+  background-image: var(--gradient-primary); 
+}
+
+@utility bg-gradient-accent { 
+  background-image: var(--gradient-accent); 
+}
+
+@utility text-gradient-hero {
+  background-image: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility shadow-glow { 
+  box-shadow: var(--shadow-glow); 
+}
+
+@utility shadow-soft { 
+  box-shadow: var(--shadow-soft); 
+}
+
+/* React Flow overrides */
+.react-flow__background {
+  background: transparent;
+}
+
+.react-flow__edge-path {
+  stroke: var(--muted-foreground);
+  stroke-width: 1.5;
+}
+
+.react-flow__edge.status-verified .react-flow__edge-path { 
+  stroke: var(--verified); 
+  stroke-width: 2.5; 
+}
+
+.react-flow__edge.status-partial .react-flow__edge-path { 
+  stroke: var(--partial); 
+  stroke-width: 2.5; 
+}
+
+.react-flow__edge.status-unverified .react-flow__edge-path { 
+  stroke: var(--unverified); 
+  stroke-width: 2.5; 
 }
