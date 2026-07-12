@@ -62,7 +62,7 @@ export default function AboutPage() {
           <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-purple-500"></span>
         </h2>
         <p className="max-w-3xl text-sm sm:text-base leading-relaxed text-gray-600">
-          Veritas is designed as a tactical document-forensics tool. It does not attempt to judge whether a claim is true; instead, it helps establish whether the supporting references and identifiers are discoverable, authoritative, and internally consistent.
+          Mnemic is designed as a tactical document-forensics tool. It does not attempt to judge whether a claim is true; instead, it helps establish whether the supporting references and identifiers are discoverable, authoritative, and internally consistent.
         </p>
       </section>
 

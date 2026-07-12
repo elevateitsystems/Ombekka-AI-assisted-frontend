@@ -23,7 +23,7 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="mt-2 text-purple-200 max-w-2xl text-sm sm:text-base">
-            Privacy and data handling principles on Veritas.
+            Privacy and data handling principles on Mnemic.
           </p>
         </div>
       </section>
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
       {/* Content Section */}
       <section className="mx-auto max-w-4xl px-6 py-12 text-gray-900">
         <p className="text-sm sm:text-base leading-relaxed text-gray-600 mb-8">
-          Veritas is built with a simple principle in mind: users should retain control over the material they submit for verification.
+          Mnemic is built with a simple principle in mind: users should retain control over the material they submit for verification.
         </p>
 
         <div className="space-y-6">

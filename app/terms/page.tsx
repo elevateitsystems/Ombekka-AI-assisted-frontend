@@ -31,7 +31,7 @@ export default function TermsPage() {
       {/* Content Section */}
       <section className="mx-auto max-w-4xl px-6 py-12 text-gray-900">
         <p className="text-sm sm:text-base leading-relaxed text-gray-600 mb-8">
-          Veritas is a verification support tool. It should be used as part of a broader review process, not as a replacement for human judgement.
+          Mnemic is a verification support tool. It should be used as part of a broader review process, not as a replacement for human judgement.
         </p>
 
         <div className="space-y-6">

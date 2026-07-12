@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Veritas — Source & Citation Verification for Academics",
+  title: "Mnemic — Source & Citation Verification for Academics",
   description:
     "Document forensics for the AI era. Verify citations, ISBNs, DOIs, and author IRIs, and see the whole reference graph at a glance.",
   openGraph: {
-    title: "Veritas — Source & Citation Verification for Academics",
+    title: "Mnemic — Source & Citation Verification for Academics",
     description:
       "Tactical document forensics: check whether references, books, and citations actually exist.",
     type: "website",

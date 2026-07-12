@@ -40,7 +40,7 @@ export function Header() {
           </div> */}
           <div>
             <p className="font-serif text-xl italic tracking-tight text-foreground">
-              Veritas
+              Mnemic
             </p>
             <p className="hidden font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground sm:block">
               document forensics

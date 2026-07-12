@@ -22,12 +22,12 @@ export function Footer() {
                 height={10}
               />
               <p className="font-serif text-2xl italic tracking-tight text-foreground">
-                Veritas
+                Mnemic
               </p>
             </Link>
 
             <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Veritas is a research tool for evidence review. It helps determine
+              Mnemic is a research tool for evidence review. It helps determine
               whether references can be located and linked to recognised
               authorities — not whether their claims are true.
             </p>
@@ -73,7 +73,7 @@ export function Footer() {
 
         <Separator className="my-8" />
         <div className="flex flex-col gap-3 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <span>© {new Date().getFullYear()} Veritas</span>
+          <span>© {new Date().getFullYear()} Mnemic</span>
           <span>
             Designed for academic integrity, editorial review, and evidence-led
             verification.

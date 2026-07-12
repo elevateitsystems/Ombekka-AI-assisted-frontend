@@ -57,7 +57,7 @@ export default function HowToWork() {
         {/* Bottom Info Box */}
         <div className="mt-16 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 border border-blue-100">
           <p className="text-gray-700 text-sm leading-relaxed text-center">
-            Veritas connects to multiple authoritative data sources including
+            Mnemic connects to multiple authoritative data sources including
             ISBN registries, DOI systems, research identifiers (ORCID, ROR), and
             institutional databases. Our forensic analysis checks for structural
             validity, discoverable metadata, and legitimate authority links.
