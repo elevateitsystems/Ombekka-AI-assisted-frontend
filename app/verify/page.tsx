@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -12,82 +12,92 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
-  AlertCircle,
-  AlertTriangle,
   ArrowRight,
-  CheckCircle2,
   Loader2,
   FileText,
   Globe,
+  Link2,
 } from "lucide-react";
-import { useVerifyReferences } from "@/hooks/use-verify-references";
-import { useScrapeUrl } from "@/hooks/use-scrapeUrl";
+import { useVerifyText } from "@/hooks/use-verify-text";
+import { useAnalyzeUrl } from "@/hooks/use-analyze-url";
+import {
+  VerificationResults,
+  ErrorBanner,
+} from "@/components/verification-results";
+import type { VerifyTextResponse, VerifyUrlResponse } from "@/lib/types";
+
+// ─── Helpers ──────────────────────────────────────────────────────────────
+
+function splitReferences(text: string): string[] {
+  return text.split(/\n+/).map((l) => l.trim()).filter(Boolean);
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────
 
 export default function VerifyPage() {
   const [activeTab, setActiveTab] = useState<"text" | "url">("text");
   const [text, setText] = useState("");
   const [url, setUrl] = useState("");
+  const [bannerError, setBannerError] = useState<string | null>(null);
 
-  const { mutate: verifyReferences, isPending: isVerifying, data, error: verifyError } = useVerifyReferences();
-  const { mutate: scrapeUrl, isPending: isScraping, error: scrapeError } = useScrapeUrl();
+  // New pipeline hooks
+  const {
+    mutate: verifyText,
+    isPending: isVerifyingText,
+    data: textData,
+    reset: resetText,
+  } = useVerifyText();
 
-  const referenceCount = useMemo(() => text.split(/\n+/).filter(Boolean).length, [text]);
+  const {
+    mutate: analyzeUrl,
+    isPending: isAnalyzingUrl,
+    data: urlData,
+    reset: resetUrl,
+  } = useAnalyzeUrl();
+
+  // ── Handlers ─────────────────────────────────────────────────────────────
 
   const handleVerifyText = () => {
-    if (text.trim()) {
-      verifyReferences({ text });
-    }
+    const refs = splitReferences(text);
+    if (refs.length === 0) return;
+    setBannerError(null);
+    resetUrl();
+    verifyText(refs, {
+      onError: (err) =>
+        setBannerError(err instanceof Error ? err.message : "Verification failed"),
+    });
   };
 
   const handleAnalyzeUrl = () => {
-    if (url.trim()) {
-      scrapeUrl(
-        { url },
-        {
-          onSuccess: (scrapeData) => {
-            if (scrapeData.text.trim()) {
-              verifyReferences({ text: scrapeData.text });
-            } else {
-              // Trigger verification with empty content to display proper empty/unverified state
-              verifyReferences({ text: "" });
-            }
-          },
+    const trimmed = url.trim();
+    if (!trimmed) return;
+    setBannerError(null);
+    resetText();
+    analyzeUrl(trimmed, {
+      onError: (err) =>
+        setBannerError(err instanceof Error ? err.message : "URL analysis failed"),
+    });
+  };
+
+  const referenceCount = splitReferences(text).length;
+  const isPending = isVerifyingText || isAnalyzingUrl;
+
+  // Normalise results to the shared VerifyTextResponse shape
+  const results: VerifyTextResponse | null = textData
+    ? textData
+    : urlData
+    ? { results: urlData.results, summary: urlData.summary }
+    : null;
+
+  const urlPageMeta: Pick<VerifyUrlResponse, "pageUrl" | "pageStatus" | "extractedCount"> | null =
+    urlData
+      ? {
+          pageUrl: urlData.pageUrl,
+          pageStatus: urlData.pageStatus,
+          extractedCount: urlData.extractedCount,
         }
-      );
-    }
-  };
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "verified":
-        return "bg-green-50 text-green-700 border-green-200";
-      case "partial":
-        return "bg-amber-50 text-amber-700 border-amber-200";
-      case "unverified":
-        return "bg-red-50 text-red-700 border-red-200";
-      default:
-        return "bg-gray-50 text-gray-700 border-gray-200";
-    }
-  };
-
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case "verified":
-        return <CheckCircle2 className="h-5 w-5 text-green-600" />;
-      case "partial":
-        return <AlertTriangle className="h-5 w-5 text-amber-500" />;
-      case "unverified":
-        return <AlertCircle className="h-5 w-5 text-red-500" />;
-      default:
-        return <Loader2 className="h-5 w-5 text-purple-600 animate-spin" />;
-    }
-  };
-
-  const isPending = isScraping || isVerifying;
-  const error = scrapeError || verifyError;
+      : null;
 
   return (
     <div className="flex-1 bg-gray-50 font-sans antialiased">
@@ -110,14 +120,16 @@ export default function VerifyPage() {
             Verification Workspace
           </h1>
           <p className="mt-2 text-purple-200 max-w-2xl text-sm sm:text-base">
-            Inspect references with a structured evidence workflow. Paste references or extract them from a website URL to verify their validity.
+            Inspect references with a structured evidence workflow. Paste
+            references or extract them from a website URL to verify their
+            validity.
           </p>
         </div>
       </section>
 
       {/* Main Workspace Content */}
       <div className="mx-auto max-w-5xl px-6 py-12 flex flex-col gap-8">
-        
+
         {/* Tab Selection */}
         <div className="flex border-b border-gray-200 gap-6">
           <button
@@ -148,18 +160,18 @@ export default function VerifyPage() {
         {activeTab === "text" ? (
           <Card className="rounded-2xl border-gray-100 shadow-sm bg-white overflow-hidden">
             <CardHeader className="bg-white border-b border-gray-50 px-8 py-6">
-              <CardTitle className="text-lg font-bold text-gray-900">Reference Input</CardTitle>
+              <CardTitle className="text-lg font-bold text-gray-900">
+                Reference Input
+              </CardTitle>
               <CardDescription className="text-xs text-gray-500 mt-1">
-                Paste each reference on its own line. Supported values include ISBN-10, ISBN-13, DOI, and URL.
+                Paste each reference on its own line. Supported: ISBN-10/13,
+                DOI (10.xxxx/…), ORCID, ROR, and http(s) URLs.
               </CardDescription>
             </CardHeader>
             <CardContent className="p-8">
               <Textarea
-                placeholder="Paste your references here (one per line)...
-Example:
-978-0-14-313734-6
-10.1234/example-doi
-https://example.com/some-academic-source"
+                id="references-textarea"
+                placeholder={`Paste your references here (one per line)...\nExample:\n978-0-14-313734-6\n10.1126/science.abc1234\n0000-0002-1825-0097\nhttps://example.com/some-academic-source`}
                 className="min-h-56 resize-y rounded-xl border-gray-200 focus-visible:ring-purple-400 bg-gray-50/50 p-4 text-sm text-gray-800 placeholder:text-gray-400"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
@@ -167,39 +179,51 @@ https://example.com/some-academic-source"
             </CardContent>
             <CardFooter className="flex flex-col gap-4 border-t border-gray-50 bg-gray-50/30 px-8 py-6 md:flex-row md:items-center md:justify-between">
               <Button
+                id="verify-references-btn"
                 onClick={handleVerifyText}
-                disabled={isPending || !text.trim()}
+                disabled={isPending || referenceCount === 0}
                 className="w-full md:w-auto bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-bold rounded-lg px-6 py-5 shadow-sm transition-colors"
               >
-                {isPending ? (
+                {isVerifyingText ? (
                   <>
-                    <Loader2 className="mr-2 h-4.5 w-4.5 animate-spin" />
-                    Verifying...
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Verifying…
                   </>
                 ) : (
                   <>
                     Verify references
-                    <ArrowRight className="ml-2 h-4.5 w-4.5" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </>
                 )}
               </Button>
               <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
-                {referenceCount} {referenceCount === 1 ? "reference" : "references"} prepared
+                {referenceCount}{" "}
+                {referenceCount === 1 ? "reference" : "references"} prepared
               </span>
             </CardFooter>
           </Card>
         ) : (
           <Card className="rounded-2xl border-gray-100 shadow-sm bg-white overflow-hidden">
             <CardHeader className="bg-white border-b border-gray-50 px-8 py-6">
-              <CardTitle className="text-lg font-bold text-gray-900">Website Analysis</CardTitle>
+              <CardTitle className="text-lg font-bold text-gray-900">
+                Website Analysis
+              </CardTitle>
               <CardDescription className="text-xs text-gray-500 mt-1">
-                Enter a webpage link. The system will extract references, check source validity, detect broken links, and compute a credibility score.
+                Enter a webpage link. The system will extract references, check
+                source validity, detect broken links, and compute a credibility
+                score.
               </CardDescription>
-            </CardHeader> 
+            </CardHeader>
             <CardContent className="p-8">
               <div className="space-y-4">
-                <label className="text-xs font-bold text-gray-700 block">Webpage URL</label>
+                <label
+                  htmlFor="webpage-url-input"
+                  className="text-xs font-bold text-gray-700 block"
+                >
+                  Webpage URL
+                </label>
                 <Input
+                  id="webpage-url-input"
                   type="url"
                   placeholder="https://example.com/article-or-publication"
                   value={url}
@@ -208,21 +232,22 @@ https://example.com/some-academic-source"
                 />
               </div>
             </CardContent>
-            <CardFooter className="flex border-t border-gray-50 bg-gray-50/30 px-8 py-6 ">
+            <CardFooter className="flex border-t border-gray-50 bg-gray-50/30 px-8 py-6">
               <Button
+                id="analyze-url-btn"
                 onClick={handleAnalyzeUrl}
                 disabled={isPending || !url.trim()}
                 className="w-full md:w-auto bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-bold rounded-lg px-6 py-5 shadow-sm transition-colors"
               >
-                {isPending ? (
+                {isAnalyzingUrl ? (
                   <>
-                    <Loader2 className="mr-2 h-4.5 w-4.5 animate-spin" />
-                    {isScraping ? "Scraping page..." : "Verifying sources..."}
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Analyzing…
                   </>
                 ) : (
                   <>
                     Analyze URL
-                    <ArrowRight className="ml-2 h-4.5 w-4.5" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </>
                 )}
               </Button>
@@ -230,79 +255,48 @@ https://example.com/some-academic-source"
           </Card>
         )}
 
-        {error && (
-          <Alert variant="destructive" className="rounded-xl border-red-100 bg-red-50 text-red-900">
-            <AlertCircle className="h-5 w-5 text-red-600" />
-            <AlertTitle className="font-bold">Error</AlertTitle>
-            <AlertDescription className="text-xs text-red-700">{error.message}</AlertDescription>
-          </Alert>
+        {/* Dismissible error banner */}
+        {bannerError && (
+          <ErrorBanner
+            message={bannerError}
+            onDismiss={() => setBannerError(null)}
+          />
         )}
 
-        {/* Verification Summary and Nodes */}
-        {data && (
-          <div className="space-y-8">
-            <Card className="rounded-2xl border-gray-100 shadow-sm bg-white overflow-hidden">
-              <CardHeader className="bg-white border-b border-gray-50 px-8 py-6">
-                <CardTitle className="text-lg font-bold text-gray-900">Verification Summary</CardTitle>
-                <CardDescription className="text-xs text-gray-500 mt-1">
-                  Overall evaluation metric of the referenced documents.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-8">
-                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-                  {[
-                    { label: "Trust Score", value: `${data.summary.trustScore}%`, tone: "text-[#7c3aed] bg-purple-50 border-purple-100" },
-                    { label: "Verified", value: data.summary.verified, tone: "text-green-700 bg-green-50 border-green-100" },
-                    { label: "Partial", value: data.summary.partial, tone: "text-amber-700 bg-amber-50 border-amber-100" },
-                    { label: "Unverified", value: data.summary.unverified, tone: "text-red-700 bg-red-50 border-red-100" },
-                  ].map((item) => (
-                    <div key={item.label} className={`rounded-xl border p-5 text-center ${item.tone} shadow-sm`}>
-                      <div className="text-3xl font-black">{item.value}</div>
-                      <div className="mt-1 text-xs font-bold opacity-85 uppercase tracking-wide">{item.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl border-gray-100 shadow-sm bg-white overflow-hidden">
-              <CardHeader className="bg-white border-b border-gray-50 px-8 py-6">
-                <CardTitle className="text-lg font-bold text-gray-900">Reference Review</CardTitle>
-                <CardDescription className="text-xs text-gray-500 mt-1">
-                  Individual item lookup results.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-8">
-                {data.nodes.length === 0 ? (
-                  <div className="text-center py-6 text-sm text-gray-500">
-                    No references were found or extracted.
-                  </div>
-                ) : (
-                  <div className="space-y-4">
-                    {data.nodes.map((node) => (
-                      <div
-                        key={node.id}
-                        className="flex flex-col gap-4 rounded-xl border border-gray-100 bg-white p-5 shadow-sm md:flex-row md:items-center md:justify-between transition-all hover:border-gray-200"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="mt-0.5">{getStatusIcon(node.status)}</div>
-                          <div>
-                            <p className="font-bold text-gray-900 text-sm sm:text-base">{node.label}</p>
-                            <p className="text-xs font-mono text-gray-400 mt-0.5">{node.identifier}</p>
-                          </div>
-                        </div>
-                        <Badge className={`rounded-full px-3 py-1 font-bold text-xs uppercase border ${getStatusColor(node.status)} bg-opacity-10 shadow-none`}>
-                          {node.status}
-                        </Badge>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+        {/* URL page metadata strip */}
+        {urlPageMeta && (
+          <div className="flex flex-wrap gap-3 items-center rounded-xl border border-gray-100 bg-white px-5 py-3 text-xs text-gray-600 shadow-sm">
+            <Link2 className="h-3.5 w-3.5 text-purple-500 shrink-0" />
+            <span className="font-semibold text-gray-800 truncate max-w-xs">
+              {urlPageMeta.pageUrl}
+            </span>
+            <span
+              className={`rounded-full px-2 py-0.5 font-bold border ${
+                urlPageMeta.pageStatus < 400
+                  ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                  : "bg-red-50 text-red-700 border-red-200"
+              }`}
+            >
+              HTTP {urlPageMeta.pageStatus}
+            </span>
+            <span className="text-gray-400">
+              {urlPageMeta.extractedCount} references extracted
+            </span>
           </div>
         )}
 
+        {/* Verification Results */}
+        {results && (
+          <VerificationResults
+            results={results.results}
+            summary={results.summary}
+            subtitle={
+              urlPageMeta
+                ? `Extracted from ${urlPageMeta.pageUrl}`
+                : `${results.summary.total} references verified`
+            }
+          />
+        )}
       </div>
     </div>
   );
