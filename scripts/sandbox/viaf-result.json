@@ -1,0 +1,1395 @@
+{
+  "ns4:VIAFCluster": {
+    "ns4:nameType": "Corporate",
+    "ns4:sources": {
+      "ns4:source": "BNF|17842770"
+    },
+    "ns4:history": {
+      "ns4:ht": ""
+    },
+    "ns4:ISBNs": {
+      "ns4:data": {
+        "ns4:sources": {
+          "ns4:sid": "BNF|17842770",
+          "ns4:s": "BNF"
+        },
+        "ns4:text": 9782378190040
+      }
+    },
+    "ns4:titles": {
+      "ns4:work": [
+        {
+          "ns4:sources": {
+            "ns4:sid": "BNF|17842770",
+            "ns4:s": "BNF"
+          },
+          "ns4:title": "Plan bâtiment durable, déjà 10 ans !"
+        },
+        {
+          "ns4:sources": {
+            "ns4:sid": "BNF|17842770",
+            "ns4:s": "BNF"
+          },
+          "ns4:title": "Rapport d'activité"
+        }
+      ]
+    },
+    "ns4:creationtime": "2026-03-21T13:26:46.193602+00:00",
+    "ns4:dateType": "lived",
+    "ns4:RelatorCodes": {
+      "ns4:data": [
+        {
+          "ns4:sources": {
+            "ns4:sid": "BNF|17842770",
+            "ns4:s": "BNF"
+          },
+          "ns4:text": "070"
+        },
+        {
+          "ns4:sources": {
+            "ns4:sid": "BNF|17842770",
+            "ns4:s": "BNF"
+          },
+          "ns4:text": 340
+        }
+      ]
+    },
+    "ns4:length": 15,
+    "ns4:birthDate": 0,
+    "ns4:Document": {
+      "ns4:inDataset": "",
+      "ns4:primaryTopic": ""
+    },
+    "ns4:fixed": {
+      "ns4:gender": "u"
+    },
+    "ns4:x400s": {
+      "ns4:x400": [
+        {
+          "ns4:datafield": {
+            "ns4:subfield": "PBD",
+            "ns4:normalized": "pbd"
+          },
+          "ns4:sources": {
+            "ns4:sid": "BNF|17842770",
+            "ns4:s": "BNF"
+          }
+        },
+        {
+          "ns4:datafield": {
+            "ns4:subfield": [
+              "Plan Bâtiment du Grenelle de l'environnement",
+              "France"
+            ],
+            "ns4:normalized": "plan batiment du grenelle de lenvironnement france"
+          },
+          "ns4:sources": {
+            "ns4:sid": "BNF|17842770",
+            "ns4:s": "BNF"
+          }
+        }
+      ]
+    },
+    "ns4:x500s": {
+      "ns4:x500": {
+        "ns4:datafield": {
+          "ns4:subfield": [
+            "z",
+            "France",
+            "Direction générale de l'aménagement, du logement et de la nature"
+          ],
+          "ns4:normalized": "france direction generale de lamenagement du logement et de la nature"
+        },
+        "ns4:sources": {
+          "ns4:sid": "BNF|17842770",
+          "ns4:s": "BNF"
+        }
+      }
+    },
+    "ns4:RecFormats": {
+      "ns4:data": [
+        {
+          "ns4:sources": {
+            "ns4:sid": "BNF|17842770",
+            "ns4:s": "BNF"
+          },
+          "ns4:text": "am"
+        },
+        {
+          "ns4:sources": {
+            "ns4:sid": "BNF|17842770",
+            "ns4:s": "BNF"
+          },
+          "ns4:text": "as"
+        }
+      ]
+    },
+    "ns4:countries": {
+      "ns4:data": {
+        "ns4:sources": {
+          "ns4:sid": "BNF|17842770",
+          "ns4:s": "BNF"
+        },
+        "ns4:text": "FR"
+      }
+    },
+    "ns4:viafID": 9.93615734285931e+21,
+    "ns4:mainHeadings": {
+      "ns4:mainHeadingEl": {
+        "ns4:datafield": {
+          "ns4:subfield": [
+            "ba0yba0y",
+            "fre",
+            20,
+            "Plan Bâtiment durable",
+            "France"
+          ]
+        },
+        "ns4:sources": {
+          "ns4:sid": "BNF|17842770",
+          "ns4:s": "BNF"
+        },
+        "ns4:id": "BNF|17842770"
+      },
+      "ns4:data": {
+        "ns4:sources": {
+          "ns4:sid": "BNF|17842770",
+          "ns4:s": "BNF"
+        },
+        "ns4:text": "Plan Bâtiment durable France"
+      }
+    },
+    "ns4:deathDate": 0,
+    "ns4:nationalityOfEntity": {
+      "ns4:data": {
+        "ns4:sources": {
+          "ns4:s": "BNF"
+        },
+        "ns4:text": "FR"
+      }
+    },
+    "ns4:languageOfEntity": {
+      "ns4:data": {
+        "ns4:sources": {
+          "ns4:s": "BNF"
+        },
+        "ns4:text": "fre"
+      }
+    },
+    "ns4:publishers": {
+      "ns4:data": {
+        "ns4:sources": {
+          "ns4:sid": "BNF|17842770",
+          "ns4:s": "BNF"
+        },
+        "ns4:text": "Éditions PC"
+      }
+    }
+  },
+  "ns3:VIAFCluster": {
+    "ns3:history": {
+      "ns3:ht": [
+        "",
+        ""
+      ]
+    },
+    "ns3:titles": "",
+    "ns3:mainHeadings": {
+      "ns3:data": {
+        "ns3:text": "자연과사람",
+        "ns3:sources": {
+          "ns3:s": [
+            "ISNI",
+            "KRNLK"
+          ],
+          "ns3:sid": [
+            "ISNI|0000000460788469",
+            "KRNLK|KAB201724663"
+          ]
+        }
+      },
+      "ns3:mainHeadingEl": [
+        {
+          "ns3:links": {
+            "ns3:link": {
+              "ns3:match": "",
+              "content": "KRNLK|KAB201724663"
+            }
+          },
+          "ns3:datafield": {
+            "ns3:subfield": "자연과사람"
+          },
+          "ns3:id": "ISNI|0000000460788469",
+          "ns3:sources": {
+            "ns3:s": "ISNI",
+            "ns3:sid": "ISNI|0000000460788469"
+          }
+        },
+        {
+          "ns3:links": {
+            "ns3:link": {
+              "ns3:match": "",
+              "content": "ISNI|0000000460788469"
+            }
+          },
+          "ns3:datafield": {
+            "ns3:subfield": "자연과사람"
+          },
+          "ns3:id": "KRNLK|KAB201724663",
+          "ns3:sources": {
+            "ns3:s": "KRNLK",
+            "ns3:sid": "KRNLK|KAB201724663"
+          }
+        }
+      ]
+    },
+    "ns3:fieldOfActivity": {
+      "ns3:data": {
+        "ns3:text": "출판出板",
+        "ns3:sources": {
+          "ns3:s": "KRNLK"
+        }
+      }
+    },
+    "ns3:sources": {
+      "ns3:source": [
+        "KRNLK|KAB201724663",
+        "ISNI|0000000460788469"
+      ]
+    },
+    "ns3:creationtime": "2025-08-02T07:39:55.136504+00:00",
+    "ns3:Document": {
+      "ns3:inDataset": "",
+      "ns3:primaryTopic": ""
+    },
+    "ns3:birthDate": 0,
+    "ns3:deathDate": 0,
+    "ns3:length": 20,
+    "ns3:x400s": {
+      "ns3:x400": [
+        {
+          "ns3:datafield": {
+            "ns3:subfield": "Jayeongwa Saram",
+            "ns3:normalized": "jayeongwa saram"
+          },
+          "ns3:sources": {
+            "ns3:s": "KRNLK",
+            "ns3:sid": "KRNLK|KAB201724663"
+          }
+        },
+        {
+          "ns3:datafield": {
+            "ns3:subfield": "Nature And People Publishing Co",
+            "ns3:normalized": "nature and people publishing co"
+          },
+          "ns3:sources": {
+            "ns3:s": "KRNLK",
+            "ns3:sid": "KRNLK|KAB201724663"
+          }
+        },
+        {
+          "ns3:datafield": {
+            "ns3:subfield": "Nature And People Publishing Co",
+            "ns3:normalized": "nature and people publishing co"
+          },
+          "ns3:sources": {
+            "ns3:s": "ISNI",
+            "ns3:sid": "ISNI|0000000460788469"
+          }
+        },
+        {
+          "ns3:datafield": {
+            "ns3:subfield": "도서출판 자연과 사람",
+            "ns3:normalized": "도서출판 자연과 사람"
+          },
+          "ns3:sources": {
+            "ns3:s": "KRNLK",
+            "ns3:sid": "KRNLK|KAB201724663"
+          }
+        },
+        {
+          "ns3:datafield": {
+            "ns3:subfield": "도서출판 자연과 사람",
+            "ns3:normalized": "도서출판 자연과 사람"
+          },
+          "ns3:sources": {
+            "ns3:s": "ISNI",
+            "ns3:sid": "ISNI|0000000460788469"
+          }
+        }
+      ]
+    },
+    "ns3:nationalityOfEntity": {
+      "ns3:data": {
+        "ns3:text": "한국(국명)[韓國]",
+        "ns3:sources": {
+          "ns3:s": "KRNLK"
+        }
+      }
+    },
+    "ns3:nameType": "Corporate",
+    "ns3:dateType": "lived",
+    "ns3:fixed": {
+      "ns3:gender": "u"
+    },
+    "ns3:viafID": 9.941172278399112e+21
+  },
+  "ns2:VIAFCluster": {
+    "ns2:languageOfEntity": {
+      "ns2:data": {
+        "ns2:sources": {
+          "ns2:s": "BNF"
+        },
+        "ns2:text": "fre"
+      }
+    },
+    "ns2:viafID": 9.980159699951003e+21,
+    "ns2:history": {
+      "ns2:ht": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "ns2:mainHeadings": {
+      "ns2:mainHeadingEl": [
+        {
+          "ns2:id": "DNB|1367982693",
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "Frankreich",
+              "Office de la biodiversité"
+            ]
+          },
+          "ns2:links": {
+            "ns2:link": [
+              {
+                "ns2:match": "",
+                "content": "SUDOC|249317451"
+              },
+              {
+                "ns2:match": "",
+                "content": "BNF|17885767"
+              }
+            ]
+          }
+        },
+        {
+          "ns2:id": "BNF|17885767",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "ba0yba0y",
+              "fre",
+              20,
+              "Office français de la biodiversité"
+            ]
+          },
+          "ns2:links": {
+            "ns2:link": [
+              {
+                "ns2:match": "",
+                "content": "SUDOC|249317451"
+              },
+              {
+                "ns2:match": "",
+                "content": "DNB|1367982693"
+              },
+              {
+                "ns2:match": "",
+                "content": "WKP|Q96378553"
+              }
+            ]
+          }
+        },
+        {
+          "ns2:id": "SUDOC|249317451",
+          "ns2:sources": {
+            "ns2:s": "SUDOC",
+            "ns2:sid": "SUDOC|249317451"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": "Office français de la biodiversité (OFB)"
+          },
+          "ns2:links": {
+            "ns2:link": [
+              {
+                "ns2:match": "",
+                "content": "BNF|17885767"
+              },
+              {
+                "ns2:match": "",
+                "content": "WKP|Q96378553"
+              },
+              {
+                "ns2:match": "",
+                "content": "DNB|1367982693"
+              }
+            ]
+          }
+        },
+        {
+          "ns2:id": "WKP|Q96378553",
+          "ns2:sources": {
+            "ns2:s": "WKP",
+            "ns2:sid": "WKP|Q96378553"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "Office français de la biodiversité",
+              "établissement public de l'État français",
+              "fr"
+            ]
+          },
+          "ns2:links": {
+            "ns2:link": [
+              {
+                "ns2:match": "",
+                "content": "BNF|17885767"
+              },
+              {
+                "ns2:match": "",
+                "content": "SUDOC|249317451"
+              }
+            ]
+          }
+        }
+      ],
+      "ns2:data": [
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Office français de la biodiversité"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:text": "Frankreich Office de la biodiversité"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "SUDOC",
+            "ns2:sid": "SUDOC|249317451"
+          },
+          "ns2:text": "Office français de la biodiversité (OFB)"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "WKP",
+            "ns2:sid": "WKP|Q96378553"
+          },
+          "ns2:text": "Office français de la biodiversité établissement public de l'État français"
+        }
+      ]
+    },
+    "ns2:RecFormats": {
+      "ns2:data": [
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "am"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "as"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "gm"
+        }
+      ]
+    },
+    "ns2:titles": {
+      "ns2:work": [
+        {
+          "ns2:title": "Aire marine",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Approche standardisée du dimensionnement de la compensation écologique guide de mise en oeuvre",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Biodiversité, climat, eau, alimentation, santé cinq crises interconnectées qui appellent des réponses communes ce que dit l'IPBES",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Biodiversité des clés pour agir revue technique",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Bulletin de santé du végétal",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Comprendre pour agir",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Cultures légumières, allium et pomme de terre",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Diving into the heart of the canyons",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Éclairage",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Essentiel",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Évaluer la réponse des cours d'eau aux opérations de restauration écologique études de cas et enseignements pour le suivi et l'évaluation synthèse de la journée d'échanges techniques organisée par l'OFB le 16 novembre 2021",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "forces de la biodiversité",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Gestion adaptative pour une gestion concertée des espèces, de leurs habitats et de leur exploitation synthèse du colloque international des 15 et 18 décembre 2022",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Guías y protocolos",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Guide de détermination des habitats terrestres et marins de la typologie EUNIS",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Guide de la méthode nationale d'évaluation des fonctions des zones humides",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Guide pour la mise en oeuvre d'indices biologiques en outre-mer l'indice biologique macroinvertébrés des antilles, IBMA",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Guide pour l'interprétation des écailles et l'estimation de l'âge chez le saumon atlantique (salmo salar) dans les populations françaises",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Guide to the interpretation of the scales and the estimation of the age of brown trout (Salmo trutta) from the French populations",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Guides et protocoles",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Histoire et impacts environnementaux de l'orpaillage en Guyane clefs de compréhension des tensions actuelles",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Identification rapide des adultes d'amphibiens de métropole et de Corse",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Knowledge for action series",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Lâchers d'eau morphogènes guide de mise en oeuvre",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Lettre de l'OFB protégeons la nature de toutes nos forces",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Mise en oeuvre des tirs dérogatoires de loup éléments de sécurité",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "observatoire des services publics d'eau et d'assainissement panorama des services et de leur performance en 2020",
+          "ns2:sources": {
+            "ns2:s": [
+              "BNF",
+              "WKP"
+            ],
+            "ns2:sid": [
+              "BNF|17885767",
+              "WKP|Q96378553"
+            ]
+          }
+        },
+        {
+          "ns2:title": "parcs nationaux de France chiffres clés",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Plongée au coeur des canyons une immersion profonde en Méditerranée",
+          "ns2:sources": {
+            "ns2:s": [
+              "BNF",
+              "SUDOC"
+            ],
+            "ns2:sid": [
+              "BNF|17885767",
+              "SUDOC|249317451"
+            ]
+          }
+        },
+        {
+          "ns2:title": "pollution plastique de nouvelles connaissances et des pistes pour l'action publique synthèse des premières rencontres du GDR Polymères et océans, 24-26 juin 2019, Créteil, et des Journées Plastiques et environnement, 27-28 juin 2019, Champs-sur-Marne",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "[Le poulpe à Mayotte]",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Protocoles de recueil de données hydromorphologiques en plan d'eau caractérisation des habitats des rives et du littoral (Charli), caractérisation de l'altération des berges (Alber)",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Rapport d'activité ...",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Recensement annuel des colonies et reposoirs de phoques en France pour l'année ...",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Rencontres",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "[La sécheresse]",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Synthèse",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        },
+        {
+          "ns2:title": "Trois décennies d'observations et de recherche sur les poissons migrateurs Bresle, Oir, Scorff, Nivelle",
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          }
+        }
+      ]
+    },
+    "ns2:Document": {
+      "ns2:primaryTopic": "",
+      "ns2:inDataset": ""
+    },
+    "ns2:fixed": {
+      "ns2:gender": "u"
+    },
+    "ns2:birthDate": 0,
+    "ns2:sources": {
+      "ns2:source": [
+        "BNF|17885767",
+        "WKP|Q96378553",
+        "SUDOC|249317451",
+        "DNB|1367982693"
+      ]
+    },
+    "ns2:nationalityOfEntity": {
+      "ns2:data": {
+        "ns2:sources": {
+          "ns2:s": [
+            "BNF",
+            "DNB"
+          ]
+        },
+        "ns2:text": "FR"
+      }
+    },
+    "ns2:nameType": "Corporate",
+    "ns2:length": 434,
+    "ns2:countries": {
+      "ns2:data": {
+        "ns2:sources": {
+          "ns2:s": "BNF",
+          "ns2:sid": "BNF|17885767"
+        },
+        "ns2:text": "FR"
+      }
+    },
+    "ns2:creationtime": "2026-03-21T13:51:49.789376+00:00",
+    "ns2:dateType": "lived",
+    "ns2:coauthors": {
+      "ns2:data": [
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Institut national de recherche pour l'agriculture, l'alimentation et l'environnement France"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Agence française pour la biodiversité"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Parc national des Calanques"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Office national de l'eau et des milieux aquatiques France"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Basilico, Laurent"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Vivier, Anne 1978-...."
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Staub, Pierre-François"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Salas, Michel"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Plateforme intergouvernementale scientifique et politique sur la biodiversité et les services écosystémiques"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Melun, Gabriel 1984-...."
+        }
+      ]
+    },
+    "ns2:deathDate": 0,
+    "ns2:RelatorCodes": {
+      "ns2:data": [
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "070"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 205
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 212
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 340
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 560
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 651
+        }
+      ]
+    },
+    "ns2:x400s": {
+      "ns2:x400": [
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "France",
+              "Ministère de l'agriculture et de l'alimentation",
+              "Office français de la biodiversité"
+            ],
+            "ns2:normalized": "france ministere de lagriculture et de lalimentation office francais de la biodiversite"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "France",
+              "Ministère de l'agriculture et de la souveraineté alimentaire",
+              "Office français de la biodiversité"
+            ],
+            "ns2:normalized": "france ministere de lagriculture et de la souverainete alimentaire office francais de la biodiversite"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "France",
+              "Ministère de la transition écologique et de la cohésion des territoires",
+              "Office français de la biodiversité"
+            ],
+            "ns2:normalized": "france ministere de la transition ecologique et de la cohesion des territoires office francais de la biodiversite"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "France",
+              "Ministère de la transition écologique et solidaire",
+              "Office français de la biodiversité"
+            ],
+            "ns2:normalized": "france ministere de la transition ecologique et solidaire office francais de la biodiversite"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "Frankreich",
+              "Biodiversity Agency"
+            ],
+            "ns2:normalized": "frankreich biodiversity agency"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": "French Biodiversity Agency (OFB)",
+            "ns2:normalized": "french biodiversity agency ofb"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "WKP",
+            "ns2:sid": "WKP|Q96378553"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": "French Office for Biodiversity",
+            "ns2:normalized": "french office for biodiversity"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "L'Office français de la biodiversité (OFB)",
+              "nauv",
+              "https://d-nb.info/standards/elementset/gnd#variantName",
+              "Unveraenderte Form"
+            ],
+            "ns2:normalized": "loffice francais de la biodiversite ofb"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": "OFB",
+            "ns2:normalized": "ofb"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": "OFB - Office français de la biodiversité",
+            "ns2:normalized": "ofb office francais de la biodiversite"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "OFB",
+              "abku",
+              "https://d-nb.info/standards/elementset/gnd#abbreviatedNameForTheCorporateBody",
+              "Abkuerzung"
+            ],
+            "ns2:normalized": "ofb"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": "Office français de la biodiversité",
+            "ns2:normalized": "office francais de la biodiversite"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "WKP",
+            "ns2:sid": "WKP|Q96378553"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": "Oficina Francesa de la Biodiversitat",
+            "ns2:normalized": "oficina francesa de la biodiversitat"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "The French Biodiversity Agency (OFB)",
+              "nauv",
+              "https://d-nb.info/standards/elementset/gnd#variantName",
+              "Unveraenderte Form"
+            ],
+            "ns2:normalized": "the french biodiversity agency ofb"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "WKP",
+            "ns2:sid": "WKP|Q96378553"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": "法國生物多樣性辦公室",
+            "ns2:normalized": "法囯生物多样性办公室"
+          }
+        }
+      ]
+    },
+    "ns2:xLinks": {
+      "ns2:xLink": [
+        {
+          "ns2:sources": {
+            "ns2:s": "WKP",
+            "ns2:sid": "WKP|Q96378553"
+          },
+          "content": "https://ca.wikipedia.org/wiki/Oficina_Francesa_de_la_Biodiversitat"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "WKP",
+            "ns2:sid": "WKP|Q96378553"
+          },
+          "content": "https://en.wikipedia.org/wiki/French_Office_for_Biodiversity"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "WKP",
+            "ns2:sid": "WKP|Q96378553"
+          },
+          "content": "https://fr.wikipedia.org/wiki/Office_français_de_la_biodiversité"
+        }
+      ]
+    },
+    "ns2:x500s": {
+      "ns2:x500": [
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "a",
+              "Agence française pour la biodiversité"
+            ],
+            "ns2:normalized": "agence francaise pour la biodiversite"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "SUDOC",
+            "ns2:sid": "SUDOC|249317451"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "France.",
+              "Agence française pour la biodiversité (2017-2019)"
+            ],
+            "ns2:normalized": "france agence francaise pour la biodiversite 2017 2019"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "SUDOC",
+            "ns2:sid": "SUDOC|249317451"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "France.",
+              "Office national de la chasse et de la faune sauvage (2000-2019)"
+            ],
+            "ns2:normalized": "france office national de la chasse et de la faune sauvage 2000 2019"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "Frankreich",
+              "Ministère de l'agriculture et de la souveraineté alimentaire",
+              "adue",
+              "https://d-nb.info/standards/elementset/gnd#hierarchicalSuperiorOfTheCorporateBody",
+              "Ueberordnung"
+            ],
+            "ns2:normalized": "frankreich ministere de lagriculture et de la souverainete alimentaire"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "Frankreich",
+              "Ministère de la transition écologique et de la cohésion des territoires",
+              "adue",
+              "https://d-nb.info/standards/elementset/gnd#hierarchicalSuperiorOfTheCorporateBody",
+              "Ueberordnung"
+            ],
+            "ns2:normalized": "frankreich ministere de la transition ecologique et de la cohesion des territoires"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "a",
+              "Office national de la chasse et de la faune sauvage",
+              "France"
+            ],
+            "ns2:normalized": "office national de la chasse et de la faune sauvage france"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "z",
+              "Solutions fondées sur la nature",
+              "Prix ; France)"
+            ],
+            "ns2:normalized": "solutions fondees sur la nature prix france"
+          }
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "DNB",
+            "ns2:sid": "DNB|1367982693"
+          },
+          "ns2:datafield": {
+            "ns2:subfield": [
+              "Vincennes",
+              "orta",
+              "https://d-nb.info/standards/elementset/gnd#placeOfBusiness"
+            ],
+            "ns2:normalized": "vincennes"
+          }
+        }
+      ]
+    },
+    "ns2:ISBNs": {
+      "ns2:data": [
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782917497067
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782917497050
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782381702209
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782381702100
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782381702025
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782381701905
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782381701769
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782381701684
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782381701608
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": 9782381701462
+        }
+      ]
+    },
+    "ns2:publishers": {
+      "ns2:data": [
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "Office français de la biodiversité"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "les Pages du Gabier éditions"
+        },
+        {
+          "ns2:sources": {
+            "ns2:s": "BNF",
+            "ns2:sid": "BNF|17885767"
+          },
+          "ns2:text": "French biodiversity agency"
+        }
+      ]
+    }
+  }
+}

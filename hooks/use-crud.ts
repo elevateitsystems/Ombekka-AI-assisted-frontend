@@ -6,7 +6,7 @@ import { useQuery, useMutation, useQueryClient, QueryKey } from '@tanstack/react
 // @param getAllFn - API function
 // @returns { data, isLoading, error }
 // ============================================
-export function useGetAll<T = any>(
+export function useGetAll<T = unknown>(
   queryKey: QueryKey,
   getAllFn: () => Promise<T[]>
 ) {
@@ -23,7 +23,7 @@ export function useGetAll<T = any>(
 // @param id - Item ID
 // @returns { data, isLoading, error }
 // ============================================
-export function useGetById<T = any>(
+export function useGetById<T = unknown>(
   queryKey: QueryKey,
   getByIdFn: (id: string | number) => Promise<T>,
   id: string | number
@@ -41,9 +41,9 @@ export function useGetById<T = any>(
 // @param createFn - API function
 // @returns { mutate, isPending }
 // ============================================
-export function useCreate<T = any>(
+export function useCreate<T = unknown, TInput = Record<string, unknown>>(
   queryKey: QueryKey,
-  createFn: (data: any) => Promise<T>
+  createFn: (data: TInput) => Promise<T>
 ) {
   const client = useQueryClient();
   return useMutation({
@@ -58,13 +58,14 @@ export function useCreate<T = any>(
 // @param updateFn - API function
 // @returns { mutate, isPending }
 // ============================================
-export function useUpdate<T = any>(
+export function useUpdate<T = unknown, TInput = Record<string, unknown>>(
   queryKey: QueryKey,
-  updateFn: (id: string | number, data: any) => Promise<T>
+  updateFn: (id: string | number, data: TInput) => Promise<T>
 ) {
   const client = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, data }: any) => updateFn(id, data),
+    mutationFn: ({ id, data }: { id: string | number; data: TInput }) =>
+      updateFn(id, data),
     onSuccess: () => client.invalidateQueries({ queryKey }),
   });
 }
@@ -75,7 +76,7 @@ export function useUpdate<T = any>(
 // @param deleteFn - API function
 // @returns { mutate, isPending }
 // ============================================
-export function useDelete<T = any>(
+export function useDelete<T = unknown>(
   queryKey: QueryKey,
   deleteFn: (id: string | number) => Promise<T>
 ) {

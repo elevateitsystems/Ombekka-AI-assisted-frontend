@@ -46,7 +46,9 @@ export async function verifyIdentifier(
 
   // Cache hit
   const cached = getCached(key);
-  if (cached) return cached;
+  if (cached) {
+    return { ...cached, input: trimmed };
+  }
 
   // Dispatch to correct verifier
   let result: VerificationResult;

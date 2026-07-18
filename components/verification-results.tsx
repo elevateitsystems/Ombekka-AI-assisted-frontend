@@ -84,10 +84,11 @@ function ResultRow({ result }: { result: VerificationResult }) {
   const hasIssues = result.issues.length > 0;
   const hasError = Boolean(result.error);
 
+  const inputString = result.input || "Unknown Input";
   const inputDisplay =
-    result.input.length > 60
-      ? result.input.slice(0, 58) + "…"
-      : result.input;
+    inputString.length > 60
+      ? inputString.slice(0, 58) + "…"
+      : inputString;
 
   const isUrl =
     result.detectedType === "url" &&

@@ -49,7 +49,7 @@ async function run() {
   }
 
   $scope.find("a[href]").each((_, el) => {
-    let href = $(el).attr("href") || "";
+    const href = $(el).attr("href") || "";
     try {
       const resolved = new URL(href, pageUrl);
       if (resolved.protocol !== "http:" && resolved.protocol !== "https:") return;
