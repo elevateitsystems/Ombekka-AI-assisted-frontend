@@ -18,30 +18,43 @@ import {
   FileText,
   Globe,
   Link2,
+  Search,
 } from "lucide-react";
 import { useVerifyText } from "@/hooks/use-verify-text";
 import { useAnalyzeUrl } from "@/hooks/use-analyze-url";
+import { useCitationGraph } from "@/hooks/use-citation-graph";
 import {
   VerificationResults,
   ErrorBanner,
 } from "@/components/verification-results";
+import {
+  CitationGraphResults,
+  CitationGraphLoadingState,
+} from "@/components/citation-graph-results";
 import type { VerifyTextResponse, VerifyUrlResponse } from "@/lib/types";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────
 
 function splitReferences(text: string): string[] {
-  return text.split(/\n+/).map((l) => l.trim()).filter(Boolean);
+  return text
+    .split(/\n+/)
+    .map((l) => l.trim())
+    .filter(Boolean);
 }
+
+type ActiveTab = "text" | "url" | "graph";
 
 // ─── Page ─────────────────────────────────────────────────────────────────
 
 export default function VerifyPage() {
-  const [activeTab, setActiveTab] = useState<"text" | "url">("text");
+  const [activeTab, setActiveTab] = useState<ActiveTab>("text");
   const [text, setText] = useState("");
   const [url, setUrl] = useState("");
+  const [citation, setCitation] = useState("");
   const [bannerError, setBannerError] = useState<string | null>(null);
 
-  // New pipeline hooks
+  // ── Existing pipeline hooks ─────────────────────────────────────────────
+
   const {
     mutate: verifyText,
     isPending: isVerifyingText,
@@ -56,6 +69,15 @@ export default function VerifyPage() {
     reset: resetUrl,
   } = useAnalyzeUrl();
 
+  // ── New citation graph hook ─────────────────────────────────────────────
+
+  const {
+    mutate: runCitationGraph,
+    isPending: isGraphPending,
+    data: graphData,
+    reset: resetGraph,
+  } = useCitationGraph();
+
   // ── Handlers ─────────────────────────────────────────────────────────────
 
   const handleVerifyText = () => {
@@ -63,6 +85,7 @@ export default function VerifyPage() {
     if (refs.length === 0) return;
     setBannerError(null);
     resetUrl();
+    resetGraph();
     verifyText(refs, {
       onError: (err) =>
         setBannerError(err instanceof Error ? err.message : "Verification failed"),
@@ -74,14 +97,27 @@ export default function VerifyPage() {
     if (!trimmed) return;
     setBannerError(null);
     resetText();
+    resetGraph();
     analyzeUrl(trimmed, {
       onError: (err) =>
         setBannerError(err instanceof Error ? err.message : "URL analysis failed"),
     });
   };
 
+  const handleCitationGraph = () => {
+    const trimmed = citation.trim();
+    if (!trimmed) return;
+    setBannerError(null);
+    resetText();
+    resetUrl();
+    runCitationGraph(trimmed, {
+      onError: (err) =>
+        setBannerError(err instanceof Error ? err.message : "Citation analysis failed"),
+    });
+  };
+
   const referenceCount = splitReferences(text).length;
-  const isPending = isVerifyingText || isAnalyzingUrl;
+  const isPending = isVerifyingText || isAnalyzingUrl || isGraphPending;
 
   // Normalise results to the shared VerifyTextResponse shape
   const results: VerifyTextResponse | null = textData
@@ -90,14 +126,16 @@ export default function VerifyPage() {
     ? { results: urlData.results, summary: urlData.summary }
     : null;
 
-  const urlPageMeta: Pick<VerifyUrlResponse, "pageUrl" | "pageStatus" | "extractedCount"> | null =
-    urlData
-      ? {
-          pageUrl: urlData.pageUrl,
-          pageStatus: urlData.pageStatus,
-          extractedCount: urlData.extractedCount,
-        }
-      : null;
+  const urlPageMeta: Pick<
+    VerifyUrlResponse,
+    "pageUrl" | "pageStatus" | "extractedCount"
+  > | null = urlData
+    ? {
+        pageUrl: urlData.pageUrl,
+        pageStatus: urlData.pageStatus,
+        extractedCount: urlData.extractedCount,
+      }
+    : null;
 
   return (
     <div className="flex-1 bg-gray-50 font-sans antialiased">
@@ -121,8 +159,7 @@ export default function VerifyPage() {
           </h1>
           <p className="mt-2 text-purple-200 max-w-2xl text-sm sm:text-base">
             Inspect references with a structured evidence workflow. Paste
-            references or extract them from a website URL to verify their
-            validity.
+            references, extract from a URL, or analyse a loose citation with AI.
           </p>
         </div>
       </section>
@@ -154,10 +191,21 @@ export default function VerifyPage() {
             <Globe className="h-4 w-4" />
             Website URL
           </button>
+          <button
+            onClick={() => setActiveTab("graph")}
+            className={`flex items-center gap-2 pb-4 font-bold text-sm transition-all border-b-2 px-1 ${
+              activeTab === "graph"
+                ? "border-purple-600 text-purple-700"
+                : "border-transparent text-gray-500 hover:text-gray-900"
+            }`}
+          >
+            <Search className="h-4 w-4" />
+            Find &amp; Verify
+          </button>
         </div>
 
-        {/* Tab contents */}
-        {activeTab === "text" ? (
+        {/* ── Tab: Text / References ─────────────────────────────────────── */}
+        {activeTab === "text" && (
           <Card className="rounded-2xl border-gray-100 shadow-sm bg-white overflow-hidden">
             <CardHeader className="bg-white border-b border-gray-50 px-8 py-6">
               <CardTitle className="text-lg font-bold text-gray-900">
@@ -202,7 +250,10 @@ export default function VerifyPage() {
               </span>
             </CardFooter>
           </Card>
-        ) : (
+        )}
+
+        {/* ── Tab: Website URL ───────────────────────────────────────────── */}
+        {activeTab === "url" && (
           <Card className="rounded-2xl border-gray-100 shadow-sm bg-white overflow-hidden">
             <CardHeader className="bg-white border-b border-gray-50 px-8 py-6">
               <CardTitle className="text-lg font-bold text-gray-900">
@@ -255,6 +306,56 @@ export default function VerifyPage() {
           </Card>
         )}
 
+        {/* ── Tab: Find & Verify (citation graph) ───────────────────────── */}
+        {activeTab === "graph" && (
+          <Card className="rounded-2xl border-gray-100 shadow-sm bg-white overflow-hidden">
+            <CardHeader className="bg-white border-b border-gray-50 px-8 py-6">
+              <CardTitle className="text-lg font-bold text-gray-900">
+                Find &amp; Verify a Citation
+              </CardTitle>
+              <CardDescription className="text-xs text-gray-500 mt-1">
+                Paste a single loose citation in any format. AI will parse it
+                into entities (book, author, publisher) and resolve their
+                real-world identifiers (ISBN, ORCID, ROR) via live lookups.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-8">
+              <Textarea
+                id="citation-graph-textarea"
+                placeholder={`Paste a single citation, e.g.:\nBaker, P. (2025). ChatGPT For Dummies (2nd Edition). John Wiley & Sons, Inc.\n\nSmith, J., & Jones, A. (2023). Deep Learning Fundamentals. MIT Press. ISBN: 978-0-262-04641-4`}
+                className="min-h-36 resize-y rounded-xl border-gray-200 focus-visible:ring-purple-400 bg-gray-50/50 p-4 text-sm text-gray-800 placeholder:text-gray-400"
+                value={citation}
+                onChange={(e) => setCitation(e.target.value)}
+              />
+              <p className="mt-3 text-xs text-gray-400 flex items-start gap-1.5">
+                <span className="text-amber-500 font-bold shrink-0">⏱</span>
+                This step takes 5–20 seconds — AI parses the citation then
+                we run live API lookups in parallel.
+              </p>
+            </CardContent>
+            <CardFooter className="flex border-t border-gray-50 bg-gray-50/30 px-8 py-6">
+              <Button
+                id="citation-graph-btn"
+                onClick={handleCitationGraph}
+                disabled={isPending || !citation.trim()}
+                className="w-full md:w-auto bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-bold rounded-lg px-6 py-5 shadow-sm transition-colors"
+              >
+                {isGraphPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Analysing…
+                  </>
+                ) : (
+                  <>
+                    Find &amp; Verify
+                    <Search className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </CardFooter>
+          </Card>
+        )}
+
         {/* Dismissible error banner */}
         {bannerError && (
           <ErrorBanner
@@ -285,7 +386,7 @@ export default function VerifyPage() {
           </div>
         )}
 
-        {/* Verification Results */}
+        {/* Verification Results (text / url tabs) */}
         {results && (
           <VerificationResults
             results={results.results}
@@ -296,6 +397,12 @@ export default function VerifyPage() {
                 : `${results.summary.total} references verified`
             }
           />
+        )}
+
+        {/* Citation Graph Results */}
+        {isGraphPending && <CitationGraphLoadingState />}
+        {graphData && !isGraphPending && (
+          <CitationGraphResults data={graphData} />
         )}
       </div>
     </div>

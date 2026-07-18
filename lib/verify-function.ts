@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { parseReferences } from '@/lib/parse-references';
-import type { GraphEdge, GraphNode, Status, VerifyResult } from '@/lib/verify-types';
+import type { GraphEdge, GraphNode, Status } from '@/lib/verify-types';
 
 // Copy all the helper functions here (fetchWithTimeout, checkUrl, checkDoi, etc.)
 // Or import them from a shared utils file

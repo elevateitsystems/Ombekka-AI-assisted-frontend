@@ -146,7 +146,7 @@ const getRandomBackground = () => {
 };
 
 // Generate random preview content based on type
-const getPreviewContent = (type: string, color: any) => {
+const getPreviewContent = (type: string, color: { bg: string; gradient: string; accent: string; badge: string }) => {
   const previews = {
     Website: {
       elements: (

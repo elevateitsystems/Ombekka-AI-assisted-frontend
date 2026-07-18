@@ -31,7 +31,7 @@ export async function verifyORCID(orcidId: string) {
       integrityScore: 100,
       issues: [],
     };
-  } catch (err) {
+  } catch {
     return { valid: false, source: "ORCID", issues: ["ORCID lookup failed or timed out"] };
   }
 }
